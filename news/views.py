@@ -4,3 +4,7 @@ from django.http import HttpResponse
 def index(request):
     print(request)
     return HttpResponse('Страница новостей')
+
+def news2(request):
+    print(request)
+    return HttpResponse('Страница новостей №2')
