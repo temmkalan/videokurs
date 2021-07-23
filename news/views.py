@@ -5,12 +5,17 @@ from .models import News
 
 def index(request):
     news = News.objects.all()
-    res = '<h1>Список новостей<h1>'
-    for item in news:
-        res += f'<div>\n<p>{item.title}</p>\n<p>{item.content}</p>\n</div>\n<hr>\n'
-    #print(request)
-    return HttpResponse(res)
+    context = {
+        'news': news,
+        'title': 'Список новостей'
+    }
+    return render (request, template_name='News/index.html',context=context)
+    # res = '<h1>Список новостей<h1>'
+    # for item in news:
+    #     res += f'<div>\n<p>{item.title}</p>\n<p>{item.content}</p>\n</div>\n<hr>\n'
+    # #print(request)
+    # return HttpResponse(res)
 
-def news2(request):
-    print(request)
-    return HttpResponse('Страница новостей №2')
+# def news2(request):
+#     print(request)
+#     return HttpResponse('Страница новостей №2')
