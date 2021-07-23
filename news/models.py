@@ -10,4 +10,9 @@ class News(models.Model):
     def __str__(self):
         return self.content
 
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+        ordering = ['-created_at']
+
 
